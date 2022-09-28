@@ -1,0 +1,76 @@
+.container {
+  width: 100vw;
+  position: relative;
+  display: block;
+  height: auto;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 80%;
+  padding: 0;
+
+}
+
+.isSales {
+  padding-left: 10px;
+}
+
+.styled-table thead tr {
+  background-color: transparent;
+  color: #ffffff;
+  text-align: left;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 20px 18px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  color: #ffffff;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* .styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+} */
+
+.btn {
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #fff;
+  color: #7016A2;
+}
+
+.btn-delete {
+  background-color: #9e14e989;
+}
+
+.btn-view {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 11px;
+}

@@ -1,0 +1,50 @@
+input {
+  width: 100%;
+  padding: 10px 0 10px;
+  margin: 30px auto;
+  display: block;
+  border-top: none;
+  font-size: 16px;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  outline: none;
+}
+
+input-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.form-data {
+  margin: auto;
+  padding: 15px;
+  width: 50%;
+  align-items: center;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+  padding: 14px;
+  margin: 50px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  transition: ease .5s;
+  border: none;
+  background-color: #742F92;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
