@@ -4,10 +4,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Header from "./components/Header";
-import About from "./pages/About";
 import AddEdit from "./pages/AddEdit";
 import Home from "./pages/Home";
-import Sample from "./pages/Sample";
 
 function App() {
   return (
@@ -18,9 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/add" component={AddEdit} />
-          <Route path="/sample" component={Sample} />
           <Route path="/update/:id" component={AddEdit} />
-          <Route path="/about" component={About} />
         </Switch>
       </div>
     </BrowserRouter>
