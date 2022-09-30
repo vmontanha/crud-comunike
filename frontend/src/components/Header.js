@@ -11,6 +11,8 @@ const Header = () => {
       setActiveTab("Home");
     } else if (location.pathname === "/add") {
       setActiveTab("AddProduto");
+    } else if (location.pathname === "/sale") {
+      setActiveTab("SaleProduct");
     }
   }, [location]);
   return (
@@ -32,6 +34,14 @@ const Header = () => {
               onClick={() => setActiveTab("AddProduto")}
             >
               Adicionar Produto
+            </p>
+          </Link>
+          <Link to="/sale">
+            <p
+              className={`${activeTab === "SaleProduct" ? "active" : ""}`}
+              onClick={() => setActiveTab("SaleProduct")}
+            >
+              Vendas
             </p>
           </Link>
         </div>

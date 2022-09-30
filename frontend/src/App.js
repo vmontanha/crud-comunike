@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import AddEdit from "./pages/AddEdit";
 import Home from "./pages/Home";
+import SalePage from "./pages/SalePage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/add" component={AddEdit} />
           <Route path="/update/:id" component={AddEdit} />
+          <Route path="/sale" component={SalePage} />
         </Switch>
       </div>
     </BrowserRouter>

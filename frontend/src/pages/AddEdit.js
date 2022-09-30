@@ -20,12 +20,12 @@ const AddEdit = () => {
 
   useEffect(() => {
     if (id) {
-      getSingleUser(id);
+      getSingleProduct(id);
     }
   }, [id]);
 
-  const getSingleUser = async (id) => {
-    const response = await axios.get(`http://localhost:8080/user/${id}`);
+  const getSingleProduct = async (id) => {
+    const response = await axios.get(`http://localhost:8080/product/${id}`);
     if (response.status === 200) {
       setState({ ...response.data[0] });
     }
@@ -39,15 +39,15 @@ const AddEdit = () => {
     });
   };
 
-  const addUser = async (data) => {
-    const response = await axios.post("http://localhost:8080/user", data);
+  const addProduct = async (data) => {
+    const response = await axios.post("http://localhost:8080/product", data);
     if (response.status === 200) {
       toast.success(response.data);
     }
   };
 
-  const updateUser = async (data, id) => {
-    const response = await axios.put(`http://localhost:8080/user/${id}`, data);
+  const updateProduct = async (data, id) => {
+    const response = await axios.put(`http://localhost:8080/product/${id}`, data);
     if (response.status === 200) {
       toast.success(response.data);
     }
@@ -59,12 +59,9 @@ const AddEdit = () => {
       toast.error("Please provide value in each input field");
     } else {
       if (!id) {
-        addUser(state);
-      } else {
-        updateUser(state, id);
+        addProduct(state);
+        return
       }
-
-      setTimeout(() => history.push("/"), 500);
     }
   };
   return (

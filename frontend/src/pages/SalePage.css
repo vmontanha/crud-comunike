@@ -1,0 +1,25 @@
+.container {
+  width: 100vw;
+  position: relative;
+  display: block;
+  height: auto;
+}
+
+table th {
+  text-align: center;
+}
+
+.container-sales {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+}
+
+.sale-title {
+  color: #fff;
+  font-size: 45px;
+  position: relative;
+  display: block;
+}

@@ -5,6 +5,11 @@
   height: auto;
 }
 
+table th {
+  text-align: center;
+}
+
+
 .styled-table {
   border-collapse: collapse;
   margin-left: auto;

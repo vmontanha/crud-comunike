@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Switch from "react-switch";
-import { MdDelete, MdModeEdit } from "react-icons/md";
+import { MdDelete, MdModeEdit, MdSend } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import axios from "axios";
@@ -9,45 +9,51 @@ import { toast } from "react-toastify";
 const Home = () => {
   const [data, setData] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [sendProduct, setSendProduct] = useState("");
+
 
   useEffect(() => {
-    getUsers();
+    getProducts();
   }, []);
 
-  const handleChange = (checked) => {
-    setChecked(true);
-  }
-  const getUsers = async () => {
-    const response = await axios.get("http://localhost:8080/users");
+  const getProducts = async () => {
+    const response = await axios.get("http://localhost:8080/products");
+    if (response.status === 200) {
+      setData(response.data);
+    }
+  };
+  const sendProductToSale = async () => {
+    const response = await axios.post("http://localhost:8080/sales");
     if (response.status === 200) {
       setData(response.data);
     }
   };
 
-  const onDeleteUser = async (id) => {
-    const response = await axios.delete(`http://localhost:8080/user/${id}`);
+  const onDeleteProduct = async (id) => {
+    const response = await axios.delete(`http://localhost:8080/product/${id}`);
     if (response.status === 200) {
       toast.success(response.data);
-      getUsers();
+      getProducts();
     }
   };
 
-  console.log("data=>", data);
+  console.log(data)
+
 
   return (
     <div className="container">
       <table className="styled-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "center" }}>ID</th>
-            <th style={{ textAlign: "center" }}>Produto</th>
-            <th style={{ textAlign: "center" }}>Quantidade</th>
-            <th style={{ textAlign: "center" }}>Valor</th>
-            <th style={{ textAlign: "center" }}>Açao</th>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Açao</th>
           </tr>
         </thead>
         <tbody>
-          {data &&
+          {data.length == 0 || null ? "" :
             data.map((item, index) => {
               return (
                 <tr key={index}>
@@ -61,11 +67,19 @@ const Home = () => {
                     </Link>
                     <button
                       className="btn btn-delete"
-                      onClick={() => onDeleteUser(item.id)}
+                      onClick={() => onDeleteProduct(item.id)}
                     >
                       <MdDelete />
                     </button>
-                    <Switch className="isSales" onChange={handleChange} height={20} width={40} checked={checked} />
+                    <button
+                      className="btn btn-delete"
+                      onClick={() => sendProductToSale(item.id)}
+                      value={data}
+                      onChange={(e) => e.target.value}
+                    >
+                      <MdSend />
+                    </button>
+
                   </td>
                 </tr>
               );
